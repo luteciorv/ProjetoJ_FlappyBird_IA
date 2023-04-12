@@ -6,7 +6,7 @@ from pygame import Surface
 
 class Chao:
     VELOCIDADE: int = 5
-    SPRITE_CHAO: Surface = pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'base.png')))
+    SPRITE_CHAO: Surface = pygame.transform.scale2x(pygame.image.load(os.path.join('Images', 'base.png')))
     LARGURA: int = SPRITE_CHAO.get_width()
 
     def __init__(self, y):

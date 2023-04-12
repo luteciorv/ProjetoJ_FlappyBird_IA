@@ -5,9 +5,9 @@ from pygame import Surface, Mask
 
 class Passaro:
     SPRITES = [
-        pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'bird1.png'))),
-        pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'bird2.png'))),
-        pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'bird3.png')))
+        pygame.transform.scale2x(pygame.image.load(os.path.join('Images', 'bird1.png'))),
+        pygame.transform.scale2x(pygame.image.load(os.path.join('Images', 'bird2.png'))),
+        pygame.transform.scale2x(pygame.image.load(os.path.join('Images', 'bird3.png')))
     ]
 
     ROTACAO_MAXIMA = 25
@@ -44,7 +44,7 @@ class Passaro:
         if deslocamento < 0 or self.y < (self.altura + 50):
             if self.angulo < self.ROTACAO_MAXIMA:
                 self.angulo = self.ROTACAO_MAXIMA
-        elif self.angulo > -80:
+        elif self.angulo > -45:
             self.angulo -= self.VELOCIDADE_ROTACAO
 
     def desenhar(self, tela):

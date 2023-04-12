@@ -1,5 +1,5 @@
-from Models.jogo import Jogo
+from IA.neat_ia import NeatIA
 
 if __name__ == '__main__':
-    jogo: Jogo = Jogo()
-    jogo.iniciar_jogo()
+    neat_ia: NeatIA = NeatIA()
+    neat_ia.aprender()

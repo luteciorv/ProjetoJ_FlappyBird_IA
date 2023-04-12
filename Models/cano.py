@@ -16,7 +16,7 @@ class Cano:
         self.altura: int = 0
         self.posicao_topo: int = 0
         self.posicao_base: int = 0
-        self.SPRITE_CANO_BASE: Surface = pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'pipe.png')))
+        self.SPRITE_CANO_BASE: Surface = pygame.transform.scale2x(pygame.image.load(os.path.join('Images', 'pipe.png')))
         self.SPRITE_CANO_TOPO: Surface = pygame.transform.flip(self.SPRITE_CANO_BASE, False, True)
         self.passaroPassou: bool = False
         self.definir_altura()
