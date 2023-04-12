@@ -70,5 +70,5 @@ class Passaro:
 
         tela.blit(spriteRotacionado, objetoPassaro.topleft)
 
-    def getMask(self):
-        pygame.mask.from_surface(self.sprite)
+    def get_mask(self):
+        return pygame.mask.from_surface(self.sprite)
