@@ -1,5 +1,6 @@
 import os
 import pygame
+from pygame import Surface, Mask
 
 
 class Passaro:
@@ -14,36 +15,36 @@ class Passaro:
     TEMPO_ANIMACAO = 5
     ACELERACAO = 1.5
 
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.angulo = 0
-        self.velocidade = 0
-        self.altura = y
-        self.tempo = 0
-        self.tempoAnimacaoAtual = 0
-        self.sprite = self.SPRITES[0]
+    def __init__(self, x: int, y: float):
+        self.x: int = x
+        self.y: float = y
+        self.angulo: int = 0
+        self.velocidade: float = 0
+        self.altura: float = y
+        self.tempo: int = 0
+        self.tempoAnimacaoAtual: int = 0
+        self.sprite: Surface = self.SPRITES[0]
 
     def pular(self):
-        self.velocidade = -10.5
+        self.velocidade = -9.5
         self.tempo = 0
         self.altura = self.y
 
     def mover(self):
         self.tempo += 1
-        deslocamento = (self.velocidade * self.tempo) + (self.ACELERACAO * (self.tempo ** 2)) / 2
+        deslocamento: float = self.ACELERACAO * (self.tempo ** 2) + (self.velocidade * self.tempo)
 
         if deslocamento > 16:
-            deslocamento = 15
+            deslocamento = 16
         elif deslocamento < 0:
             deslocamento -= 2
 
         self.y += deslocamento
 
-        if deslocamento < 0 or self.y(self.altura + 50):
+        if deslocamento < 0 or self.y < (self.altura + 50):
             if self.angulo < self.ROTACAO_MAXIMA:
                 self.angulo = self.ROTACAO_MAXIMA
-        elif self.angulo > -90:
+        elif self.angulo > -80:
             self.angulo -= self.VELOCIDADE_ROTACAO
 
     def desenhar(self, tela):
@@ -54,7 +55,7 @@ class Passaro:
         elif self.tempoAnimacaoAtual < self.TEMPO_ANIMACAO * 2:
             self.sprite = self.SPRITES[1]
         elif self.tempoAnimacaoAtual < self.TEMPO_ANIMACAO * 3:
-            self.sprite = self.sprite[2]
+            self.sprite = self.SPRITES[2]
         elif self.tempoAnimacaoAtual < self.TEMPO_ANIMACAO * 4:
             self.sprite = self.SPRITES[1]
         elif self.tempoAnimacaoAtual < self.TEMPO_ANIMACAO * 4 + 1:
@@ -70,5 +71,5 @@ class Passaro:
 
         tela.blit(spriteRotacionado, objetoPassaro.topleft)
 
-    def get_mask(self):
+    def get_mask(self) -> Mask:
         return pygame.mask.from_surface(self.sprite)

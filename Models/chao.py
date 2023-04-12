@@ -5,7 +5,7 @@ from pygame import Surface
 
 
 class Chao:
-    VELOCIDADE: float = 5
+    VELOCIDADE: int = 5
     SPRITE_CHAO: Surface = pygame.transform.scale2x(pygame.image.load(os.path.join('images', 'base.png')))
     LARGURA: int = SPRITE_CHAO.get_width()
 
@@ -19,10 +19,10 @@ class Chao:
         self.x_segundo_chao -= self.VELOCIDADE
 
         if self.x_primeiro_chao + self.LARGURA < 0:
-            self.x_primeiro_chao += self.LARGURA
+            self.x_primeiro_chao = self.x_segundo_chao + self.LARGURA
 
         if self.x_segundo_chao + self.LARGURA < 0:
-            self.x_segundo_chao += self.LARGURA
+            self.x_segundo_chao = self.x_primeiro_chao + self.LARGURA
 
     def desenhar(self, tela):
         tela.blit(self.SPRITE_CHAO, (self.x_primeiro_chao, self.y))
