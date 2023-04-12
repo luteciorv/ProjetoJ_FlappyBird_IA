@@ -8,10 +8,10 @@
         
 ### Telas do Projeto
 	* Geração 0
-![](images/tela-jogo-1.PNG?raw=true)
+![](images/tela-jogo-1.png?raw=true)
 
 	* Geração 4
-![](images/tela-jogo-2.PNG?raw=true)
+![](images/tela-jogo-2.png?raw=true)
 
 	* Estatísticas da geração 3
-![](images/tela-jogo-3.PNG?raw=true)
+![](images/tela-jogo-3.png?raw=true)
