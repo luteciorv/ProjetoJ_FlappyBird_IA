@@ -1,0 +1,2 @@
+class Chao:
+    pass
